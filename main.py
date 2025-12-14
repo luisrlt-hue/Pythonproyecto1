@@ -8,24 +8,24 @@ CRUD
  - DELETE
 """
 
-dic_alumnos = {
-    '12345678':{
-        'nombre':'Juan Perez',
-        'email' : 'juanperez@gmail.com'
+dic_empresas = {
+    '123456789':{
+        'nombre':'HyJ Ingeniros',
+        'email' : 'HyJIngeniros@gmail.com'
     }
 }
 
-ANCHO = 50
+ANCHO =100
 
 while(True):
     os.system("clear")
-    print(" " * 10 + "GESTIÓN DE ALUMNOS")
+    print(" " * 10 + "GESTIÓN DE EMPRESAS")
     print("="*ANCHO)
     print("""
-         [1] REGISTRAR ALUMNO
-         [2] MOSTRAR ALUMNOS
-         [3] ACTUALIZAR ALUMNO
-         [4] ELIMINAR ALUMNO
+         [1] REGISTRAR EMPRESA
+         [2] MOSTRAR EMPRESAS
+         [3] ACTUALIZAR EMPRESA
+         [4] ELIMINAR ALUMNOEMPRESA
          [5] SALIR
           """)
     print("=" * ANCHO)
@@ -33,53 +33,53 @@ while(True):
     os.system("clear")
     if opcion == 1:
         print("=" * ANCHO)
-        print(" " * 10 + "REGISTRAR ALUMNO")
+        print(" " * 10 + "REGISTRAR EMPRESA")
         print("=" * ANCHO)
         
-        dni = input("Ingrese DNI: ")
+        ruc = input("Ingrese RUC: ")
         nombre = input("Ingrese Nombre: ")
         email = input("Ingrese Email: ")
-        dic_nuevo_alumno = {
+        dic_nuevo_empresa = {
             'nombre': nombre,
             'email': email
         }
-        dic_alumnos[dni] = dic_nuevo_alumno
-        print("Alumno registrado existosamente")
+        dic_empresas[ruc] = dic_nuevo_empresa
+        print("Empresa registrado existosamente")
     elif opcion == 2:
         print("=" * ANCHO)
-        print(" " * 10 + "MOSTRAR ALUMNO")
+        print(" " * 10 + "MOSTRAR EMPRESA")
         print("=" * ANCHO)
-        for dni,info in dic_alumnos.items():
-            print(f"DNI : {dni}")
+        for ruc,info in dic_empresas.items():
+            print(f"RUC : {ruc}")
             print(f"Nombre : {info['nombre']}")
             print(f"Email : {info['email']}")
             print('*' * ANCHO)
     elif opcion == 3:
         print("=" * ANCHO)
-        print(" " * 10 + "ACTUALIZAR  ALUMNO")
+        print(" " * 10 + "ACTUALIZAR  EMPRESA")
         print("=" * ANCHO)
-        dni = input("Ingrese DNI del alumno a actualizar : ")
-        if dni in dic_alumnos:
-            print(f"Alumno Encontrado : {dic_alumnos[dni]['nombre']}")
-            nuevo_nombre = input(f"NUEVO NOMBRE({dic_alumnos[dni]['nombre']}) : ")
-            nuevo_email = input(f"NUEVO EMAIL({dic_alumnos[dni]['email']}) : ")
+        ruc = input("Ingrese RUC de la empresa a actualizar : ")
+        if ruc in dic_empresas:
+            print(f"Empresa Encontrada : {dic_empresas[ruc]['nombre']}")
+            nuevo_nombre = input(f"NUEVO NOMBRE({dic_empresas[ruc]['nombre']}) : ")
+            nuevo_email = input(f"NUEVO EMAIL({dic_empresas[ruc]['email']}) : ")
             if nuevo_nombre:
-                dic_alumnos[dni]['nombre'] = nuevo_nombre
+                dic_empresas[ruc]['nombre'] = nuevo_nombre
             if nuevo_email:
-                dic_alumnos[dni]['email'] = nuevo_email
-            print("ALUMNO ACTUALIZADO EXITOSAMENTE!!!")
+                dic_empresas[ruc]['email'] = nuevo_email
+            print("EMPRESA ACTUALIZADA EXITOSAMENTE!!!")
         else:
-            print('No se econtro el alumno para el DNI ingresado')
+            print('No se econtro la emprsa para el RUC ingresado')
     elif opcion == 4:
         print("=" * ANCHO)
-        print(" " * 10 + "ELIMINAR ALUMNO")
+        print(" " * 10 + "ELIMINAR EMPRESA")
         print("=" * ANCHO)
-        dni = input("Ingrese DNI del alumno a actualizar : ")
-        if dni in dic_alumnos:
-            del dic_alumnos[dni]
-            print('ALUMNO ELIMINADO EXITOSAMENTE')
+        ruc = input("Ingrese RUC de la empresa a actualizar : ")
+        if ruc in dic_empresas:
+            del dic_empresas[ruc]
+            print('EMPRESA ELIMINADO EXITOSAMENTE')
         else:
-            print('No se econtro el alumno para el DNI ingresado')
+            print('No se econtro el empresa para el RUC ingresado')
     elif opcion == 5:
         print("=" * ANCHO)
         print(" " * 10 + "SALIENDO DEL PROGRAMA")
