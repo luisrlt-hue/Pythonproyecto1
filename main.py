@@ -36,9 +36,11 @@ while(True):
         ruc = input("Ingrese RUC: ")
         nombre = input("Ingrese Nombre: ")
         email = input("Ingrese Email: ")
+        direccion=input("Ingrese la direccion de la empresa: ")
         dic_nuevo_empresa = {
             'nombre': nombre,
-            'email': email
+            'email': email,
+            'direccion':direccion
         }
         dic_empresas[ruc] = dic_nuevo_empresa
         print("Empresa registrado existosamente")
@@ -50,6 +52,7 @@ while(True):
             print(f"RUC : {ruc}")
             print(f"Nombre : {info['nombre']}")
             print(f"Email : {info['email']}")
+            print(f"Direccion:{direccion['direccion']}")
             print('*' * ANCHO)
     elif opcion == 3:
         print("=" * ANCHO)
@@ -60,10 +63,13 @@ while(True):
             print(f"Empresa Encontrada : {dic_empresas[ruc]['nombre']}")
             nuevo_nombre = input(f"NUEVO NOMBRE({dic_empresas[ruc]['nombre']}) : ")
             nuevo_email = input(f"NUEVO EMAIL({dic_empresas[ruc]['email']}) : ")
+            nuevo_direccion=input(f"NUEVA DIREECION({dic_empresas[ruc['direccion']]})")
             if nuevo_nombre:
                 dic_empresas[ruc]['nombre'] = nuevo_nombre
             if nuevo_email:
                 dic_empresas[ruc]['email'] = nuevo_email
+            if nuevo_direccion:
+                dic_empresas[ruc['direccion']]=nuevo_direccion
             print("EMPRESA ACTUALIZADA EXITOSAMENTE!!!")
         else:
             print('No se econtro la emprsa para el RUC ingresado')
@@ -74,7 +80,7 @@ while(True):
         ruc = input("Ingrese RUC de la empresa a actualizar : ")
         if ruc in dic_empresas:
             del dic_empresas[ruc]
-            print('EMPRESA ELIMINADO EXITOSAMENTE')
+            print('EMPRESA ELIMINADA EXITOSAMENTE')
         else:
             print('No se econtro el empresa para el RUC ingresado')
     elif opcion == 5:
