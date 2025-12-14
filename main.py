@@ -1,11 +1,8 @@
 import os
 from time import sleep
 """
-CRUD
- - CREATE
- - READ
- - UPDATE
- - DELETE
+PROYECTO 1 :EMPRESAS
+ALUMNO:LUIS ROBERTO LAZO TURPO
 """
 
 dic_empresas = {
